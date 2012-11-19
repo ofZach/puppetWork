@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxPuppet.h"
+
 
 class testApp : public ofBaseApp{
 
@@ -19,4 +21,8 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+    
+        ofxPuppet puppet;
+    
+    
 };

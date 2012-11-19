@@ -83,7 +83,6 @@ void RigidMeshDeformer2D::UnTransformPoint( ofVec2f & vTransform )
 }
 
 
-#pragma mark -
 void RigidMeshDeformer2D::InitializeFromMesh( ofMesh * pMesh )
 {
 	m_vConstraints.clear();
@@ -166,13 +165,11 @@ void RigidMeshDeformer2D::InitializeFromMesh( ofMesh * pMesh )
 			if ( fLength > 0.001f )
 				DebugBreak();
 			
-			cout << fX << " --- " << fY << endl;
 			t.vTriCoords[j].x= fX;
 			t.vTriCoords[j].y= fY;
 			
 			//= fromOF(ofPoint(fX,fY));
 			
-			cout << t.vTriCoords[j].x<< " " << t.vTriCoords[j].y<< endl;
 			
 			// find coordinate system
 //			ofVec2f v01;
@@ -225,6 +222,8 @@ void RigidMeshDeformer2D::UpdateDeformedMesh( ofMesh * pMesh, bool bRigid )
 {
 	ValidateDeformedMesh(bRigid);
 	
+
+    
 	std::vector<Vertex> & vVerts = (m_vConstraints.size() > 1) ? m_vDeformedVerts : m_vInitialVerts;
 	
 	unsigned int nVerts = pMesh->getVertices().size();
@@ -525,7 +524,6 @@ void RigidMeshDeformer2D::ApplyFittingStep()
 			continue;
 		int nRow = m_vVertexMap[i];
         
-        cout << "HEREERERE " << vSolutionX[nRow] << endl;;
         
 		m_vDeformedVerts[i].vPosition.x= (float)vSolutionX[nRow];
 		m_vDeformedVerts[i].vPosition.y= (float)vSolutionY[nRow];
